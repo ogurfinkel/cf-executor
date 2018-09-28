@@ -14,5 +14,5 @@ async function createServer(serverContext) {
 createServer({
     flavor: "express",
     routes: routesBuilder.buildRoutes([publishAdminRoutes(), publishExecutionRoutes(new FlowManager())]),
-    port: 3000
+    port: 8080  
 });
