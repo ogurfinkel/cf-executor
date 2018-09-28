@@ -1,0 +1,18 @@
+{
+    "BuildingDockerImage": {
+        "handler": "./handlers/imageBuilder",
+        "parallel": false
+    },
+    "RunningUnitTests": {
+        "handler":"./handlers/testExecutor",
+        "parallel": true
+    },
+    "Create_file" : {
+        "handler": "./handlers/fileCreator",
+        "parallel":true
+    },
+    "metadata": {
+        "handler":"./handlers/metadataSetter",
+        "parallel": false
+    }
+}

@@ -5,6 +5,9 @@ const publishExecutionRoutes = require("./lib/server/executionRoutes");
 const FlowManager = require("./lib/execution/flowManager");
 
 async function createServer(serverContext) {
+    const flowManager = new FlowManager();
+    await flowManager.init();
+    serverContext.routes = routesBuilder.buildRoutes([publishAdminRoutes(), publishExecutionRoutes(flowManager)]);
     const {
         server
     } = await serverFactory.createServerFromConfig(serverContext);
@@ -13,6 +16,5 @@ async function createServer(serverContext) {
 
 createServer({
     flavor: "express",
-    routes: routesBuilder.buildRoutes([publishAdminRoutes(), publishExecutionRoutes(new FlowManager())]),
     port: 8080  
 });
