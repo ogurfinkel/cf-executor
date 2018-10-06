@@ -5,7 +5,8 @@
     },
     "RunningUnitTests": {
         "handler":"./handlers/testExecutor",
-        "parallel": true
+        "parallel": true,
+        "prerequisite": "ContainerCreation"
     },
     "Create_file" : {
         "handler": "./handlers/fileCreator",
@@ -13,6 +14,10 @@
     },
     "metadata": {
         "handler":"./handlers/metadataSetter",
+        "parallel": false
+    },
+    "ContainerCreation": {
+        "handler": "./handlers/containerCreator",
         "parallel": false
     }
 }
